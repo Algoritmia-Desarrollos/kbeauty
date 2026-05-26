@@ -1013,43 +1013,49 @@
 
   <!-- Comparativa medios de pago -->
   <div class="card" style="margin-bottom:16px;">
-    <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Comparativa medios de pago — sobre una venta de $113.000 ARS (héroe + 1 complemento)</div>
+    <div style="font-size:11px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;">Medios de pago — configuración real en Tienda Nube</div>
     <table class="bench-table">
-      <thead><tr><th>Medio de pago</th><th>Tasa real (con IVA)</th><th>Costo en esa venta</th><th>Acreditación</th><th>Estrategia</th></tr></thead>
+      <thead><tr><th>Método</th><th>Costo total</th><th>Costo sobre venta $69.900 (héroe)</th><th>Acreditación</th><th>Estrategia</th></tr></thead>
       <tbody>
         <tr style="background:rgba(52,211,153,0.04);">
-          <td style="font-weight:700;color:#34d399;">Transferencia bancaria</td>
-          <td style="font-weight:800;color:#34d399;">1.82%</td>
-          <td style="font-weight:800;color:#34d399;">$2.056 ARS</td>
-          <td>1 día hábil</td>
-          <td style="font-size:12px;color:#34d399;font-weight:700;">Ofrecer 10% descuento para incentivar → seguís ahorrando ~3–5% vs tarjeta</td>
+          <td style="font-weight:700;color:#34d399;">"A convenir" — Transferencia manual <span style="background:rgba(52,211,153,0.15);color:#34d399;padding:1px 7px;border-radius:4px;font-size:10px;font-weight:700;margin-left:4px;">RECOMENDADO</span></td>
+          <td style="font-weight:800;color:#34d399;">Solo 2% CPT Tienda Nube</td>
+          <td style="font-weight:800;color:#34d399;">$1.398 ARS</td>
+          <td>En el momento (confirmación manual)</td>
+          <td style="font-size:12px;color:#34d399;font-weight:700;">Ofrecer 15% descuento → cliente paga $59.415 · vos pagás $1.188 CPT · margen intacto</td>
         </tr>
         <tr>
-          <td style="font-weight:600;">Tarjeta déb/créd (14 días)</td>
-          <td style="color:#fbbf24;">4.22%</td>
-          <td style="color:#fbbf24;">$4.769 ARS</td>
+          <td style="font-weight:600;">Pago Nube — Tarjeta déb/créd (14 días)</td>
+          <td style="color:#fbbf24;">3.49% + IVA = 4.22%</td>
+          <td style="color:#fbbf24;">$2.950 ARS</td>
           <td>14 días hábiles</td>
-          <td style="font-size:12px;color:var(--muted);">Activar para quien no puede transferir</td>
+          <td style="font-size:12px;color:var(--muted);">Para quien no puede transferir. Activar como alternativa.</td>
         </tr>
         <tr>
-          <td style="font-weight:600;">Tarjeta déb/créd (7 días)</td>
-          <td style="color:#f87171;">5.31%</td>
-          <td style="color:#f87171;">$6.000 ARS</td>
+          <td style="font-weight:600;">Pago Nube — Tarjeta déb/créd (7 días)</td>
+          <td style="color:#f87171;">4.39% + IVA = 5.31%</td>
+          <td style="color:#f87171;">$3.712 ARS</td>
           <td>7 días hábiles</td>
-          <td style="font-size:12px;color:var(--muted);">Solo si el cliente lo requiere</td>
+          <td style="font-size:12px;color:var(--muted);">Solo si el cliente lo necesita urgente.</td>
         </tr>
         <tr>
-          <td style="font-weight:600;">Billetera virtual (MP, Ualá, etc.)</td>
-          <td style="color:#f87171;">7.37%</td>
-          <td style="color:#f87171;">$8.328 ARS</td>
+          <td style="font-weight:600;">Pago Nube — Billetera virtual</td>
+          <td style="color:#f87171;">6.09% + IVA = 7.37%</td>
+          <td style="color:#f87171;">$5.152 ARS</td>
           <td>1 día hábil</td>
-          <td style="font-size:12px;color:var(--muted);">Evitar si es posible — el más caro</td>
+          <td style="font-size:12px;color:var(--muted);">Evitar — el más caro de todos.</td>
         </tr>
       </tbody>
     </table>
-    <div style="margin-top:12px;background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);border-radius:8px;padding:12px;font-size:13px;color:#5a8a70;">
-      <strong style="color:#34d399;">Estrategia recomendada:</strong> Precio base + 10% descuento visible por transferencia. El cliente paga menos, vos cobrás mucho menos comisión. En 100 órdenes/mes por transferencia ahorrás ~$400.000 ARS vs si todos pagaran con tarjeta.
+    <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+      <div style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);border-radius:8px;padding:12px;font-size:13px;color:#5a8a70;">
+        <strong style="color:#34d399;">Con transferencia + 15% off:</strong><br>Cliente paga $59.415 · Tienda Nube cobra 2% = $1.188 · Vos recibís $58.227 netos. Costo total del método: solo $1.188 ARS.
+      </div>
+      <div style="background:rgba(248,113,113,0.06);border:1px solid rgba(248,113,113,0.2);border-radius:8px;padding:12px;font-size:13px;color:#906060;">
+        <strong style="color:#f87171;">Con tarjeta sin descuento:</strong><br>Cliente paga $69.900 · Pago Nube cobra 5.31% = $3.712 · Vos recibís $66.188 netos. Cobrás más, pero pagás $2.524 ARS extra en comisiones.
+      </div>
     </div>
+    <div style="margin-top:10px;font-size:11px;color:#4a4452;padding:0 4px;">⚠️ El 15% de descuento por transferencia baja el ingreso bruto ~$10.500 ARS. Conviene cuando el volumen es alto y querés minimizar comisiones — en 100 órdenes/mes ahorrás ~$250.000 ARS en comisiones vs tarjeta. A bajo volumen, la diferencia es menor.</div>
   </div>
 
   <!-- Precios de venta + costo + margen por producto -->
@@ -1106,7 +1112,7 @@
       <div style="padding:11px 14px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:13px;display:flex;justify-content:space-between;"><span style="color:var(--muted);">Precio de venta promedio (héroe + 1 complemento)</span><span style="font-weight:700;">~$113.000 ARS</span></div>
       <div style="padding:11px 14px;border-bottom:1px solid var(--border);font-size:13px;display:flex;justify-content:space-between;"><span style="color:var(--muted);">Costo mayorista (2 productos)</span><span style="font-weight:700;color:#f87171;">~$55.000 ARS</span></div>
       <div style="padding:11px 14px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:13px;display:flex;justify-content:space-between;"><span style="color:var(--muted);">Envío (a cargo del cliente en pedidos >$100K)</span><span style="font-weight:700;color:#34d399;">$0 para vos</span></div>
-      <div style="padding:11px 14px;border-bottom:1px solid var(--border);font-size:13px;display:flex;justify-content:space-between;"><span style="color:var(--muted);">Comisión Pago Nube (transferencia 1.82% · tarjeta 5.31%)</span><span style="font-weight:700;color:#f87171;">$1.300–$6.000 ARS</span></div>
+      <div style="padding:11px 14px;border-bottom:1px solid var(--border);font-size:13px;display:flex;justify-content:space-between;"><span style="color:var(--muted);">CPT Tienda Nube — "A convenir" transferencia (2%)</span><span style="font-weight:700;color:#34d399;">~$1.200 ARS</span></div>
       <div style="padding:11px 14px;border-bottom:1px solid var(--border);border-right:1px solid var(--border);font-size:13px;display:flex;justify-content:space-between;"><span style="color:var(--muted);">CPA ads (costo de adquisición del cliente)</span><span style="font-weight:700;color:#f87171;">~$12.000–18.000 ARS</span></div>
       <div style="padding:11px 14px;border-bottom:1px solid var(--border);font-size:13px;display:flex;justify-content:space-between;"><span style="color:var(--muted);">Packaging</span><span style="font-weight:700;color:#f87171;">~$600 ARS</span></div>
       <div style="padding:14px;border-right:1px solid var(--border);font-size:16px;font-weight:900;display:flex;justify-content:space-between;"><span>Ganancia neta por orden</span><span style="color:#34d399;">~$34.000–40.000 ARS</span></div>
