@@ -33,13 +33,12 @@
   .hero p { color: #7a7060; font-size: 15px; }
   .hero .meta { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
 
-  .tag { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+  .tag { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.4px; }
   .tag-pink { background: rgba(232,93,138,0.12); color: #e85d8a; border: 1px solid rgba(232,93,138,0.3); }
   .tag-green { background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.25); }
-  .tag-blue { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.25); }
-  .tag-purple { background: rgba(167,139,250,0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.25); }
-  .tag-muted { background: rgba(107,101,116,0.15); color: #8b8494; border: 1px solid rgba(107,101,116,0.3); }
   .tag-warn { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
+  /* blue y purple → muted */
+  .tag-blue, .tag-purple, .tag-muted { background: rgba(107,101,116,0.12); color: #8b8494; border: 1px solid rgba(107,101,116,0.25); }
 
   nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; gap: 2px; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
   .nav-links { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; flex: 1; }
@@ -93,11 +92,12 @@
   .stat-label { font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; }
   .stat-sub { font-size: 12px; color: #5a5462; margin-top: 5px; }
 
+  /* Números — solo 3 colores con significado */
   .num-pink { background: linear-gradient(135deg, #e85d8a, #f9a8c9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .num-green { background: linear-gradient(135deg, #34d399, #6ee7b7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .num-blue { background: linear-gradient(135deg, #60a5fa, #93c5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
-  .num-purple { background: linear-gradient(135deg, #a78bfa, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
   .num-warn { background: linear-gradient(135deg, #fbbf24, #fde68a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .num-blue { background: linear-gradient(135deg, #e85d8a, #f9a8c9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .num-purple { background: linear-gradient(135deg, #34d399, #6ee7b7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
 
   .bench-table { width: 100%; border-collapse: collapse; }
   .bench-table th { text-align: left; padding: 10px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
@@ -105,12 +105,11 @@
   .bench-table tr:last-child td { border-bottom: none; }
   .bench-table tr:hover td { background: rgba(232,93,138,0.03); }
 
-  .pb { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; }
-  .pb-lux { background: rgba(248,113,113,0.1); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
-  .pb-pre { background: rgba(232,93,138,0.12); color: #e85d8a; border: 1px solid rgba(232,93,138,0.25); }
-  .pb-mid { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.2); }
-  .pb-bud { background: rgba(107,101,116,0.15); color: #8b8494; border: 1px solid rgba(107,101,116,0.25); }
+  .pb { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 11px; font-weight: 700; }
+  /* Badges simplificados: nuestro=verde, competidor=neutro, premium=accent */
   .pb-us { background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+  .pb-pre, .pb-lux { background: rgba(232,93,138,0.1); color: #e85d8a; border: 1px solid rgba(232,93,138,0.2); }
+  .pb-mid, .pb-bud { background: rgba(107,101,116,0.12); color: #8b8494; border: 1px solid rgba(107,101,116,0.2); }
 
   .brand-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.2s; }
   .brand-card:hover { border-color: rgba(232,93,138,0.3); }
@@ -126,21 +125,18 @@
   .ig-flabel { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
   .ig-note { font-size: 12px; color: #5a5462; line-height: 1.6; }
 
-  .hook-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; border-left: 3px solid var(--accent); }
-  .hook-card.blue { border-left-color: #60a5fa; }
-  .hook-card.green { border-left-color: #34d399; }
-  .hook-card.purple { border-left-color: #a78bfa; }
-  .hook-card.warn { border-left-color: #fbbf24; }
-  .hook-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
-  .hook-text { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 10px; }
-  .hook-why { font-size: 13px; color: #5a5462; line-height: 1.6; }
+  /* Hooks — borde izquierdo siempre accent, sin arco iris */
+  .hook-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 14px 16px; border-left: 3px solid var(--accent); }
+  .hook-card.blue, .hook-card.green, .hook-card.purple, .hook-card.warn { border-left-color: var(--accent); }
+  .hook-label { font-size: 10px; font-weight: 700; letter-spacing: .8px; color: var(--muted); text-transform: uppercase; margin-bottom: 6px; }
+  .hook-text { font-size: 14px; font-weight: 700; line-height: 1.4; margin-bottom: 8px; color: var(--text); }
+  .hook-why { font-size: 12px; color: #5a5462; line-height: 1.5; }
   .grid-hooks { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-bottom: 14px; }
 
-  .pill-wrap { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
-  .pill { padding: 5px 13px; border-radius: 999px; font-size: 12px; font-weight: 600; }
-  .pill-cold { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.2); }
-  .pill-warm { background: rgba(232,93,138,0.1); color: #e85d8a; border: 1px solid rgba(232,93,138,0.2); }
-  .pill-hot { background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+  .pill-wrap { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 8px; }
+  .pill { padding: 3px 10px; border-radius: 999px; font-size: 11px; font-weight: 600; }
+  /* Todos los pills usan el mismo estilo neutro */
+  .pill-cold, .pill-warm, .pill-hot { background: rgba(107,101,116,0.15); color: #9a94a4; border: 1px solid rgba(107,101,116,0.25); }
 
   .warn-box { background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2); border-radius: 10px; padding: 14px 18px; font-size: 13px; color: #c4a060; }
 
@@ -320,7 +316,7 @@
 
   <div class="grid-auto" style="margin-bottom:16px;">
 
-    <div class="brand-card" style="border-top:3px solid #e85d8a;">
+    <div class="brand-card" style="border-top:2px solid var(--border);">
       <div>
         <div class="brand-tag">Prioridad 1 · Skincare</div>
         <div class="brand-name">COSRX</div>
@@ -330,7 +326,7 @@
       <div class="pill-wrap"><span class="pill pill-cold">Acné</span><span class="pill pill-cold">Hidratación</span><span class="pill pill-warm">Glass skin</span></div>
     </div>
 
-    <div class="brand-card" style="border-top:3px solid #a78bfa;">
+    <div class="brand-card" style="border-top:2px solid var(--border);">
       <div>
         <div class="brand-tag">Prioridad 1 · Skincare</div>
         <div class="brand-name">Anua</div>
@@ -340,7 +336,7 @@
       <div class="pill-wrap"><span class="pill pill-cold">Piel sensible</span><span class="pill pill-warm">Viral IG/TT</span><span class="pill pill-hot">Alta rotación</span></div>
     </div>
 
-    <div class="brand-card" style="border-top:3px solid #fbbf24;">
+    <div class="brand-card" style="border-top:2px solid var(--border);">
       <div>
         <div class="brand-tag">Prioridad 1 · Skincare</div>
         <div class="brand-name">Beauty of Joseon</div>
@@ -350,7 +346,7 @@
       <div class="pill-wrap"><span class="pill pill-cold">Sunscreen</span><span class="pill pill-warm">Lifestyle</span><span class="pill pill-cold">Anti-age</span></div>
     </div>
 
-    <div class="brand-card" style="border-top:3px solid #34d399;">
+    <div class="brand-card" style="border-top:2px solid var(--border);">
       <div>
         <div class="brand-tag">Prioridad 2 · Skincare</div>
         <div class="brand-name">Skin1004</div>
@@ -360,7 +356,7 @@
       <div class="pill-wrap"><span class="pill pill-cold">Centella</span><span class="pill pill-warm">Piel sensible</span><span class="pill pill-hot">Ticket bajo</span></div>
     </div>
 
-    <div class="brand-card" style="border-top:3px solid #60a5fa;">
+    <div class="brand-card" style="border-top:2px solid var(--border);">
       <div>
         <div class="brand-tag">Prioridad 2 · Skincare</div>
         <div class="brand-name">Some By Mi</div>
@@ -370,7 +366,7 @@
       <div class="pill-wrap"><span class="pill pill-cold">Acné</span><span class="pill pill-cold">Manchas</span><span class="pill pill-warm">Hook fuerte</span></div>
     </div>
 
-    <div class="brand-card" style="border-top:3px solid #f87171;">
+    <div class="brand-card" style="border-top:2px solid var(--border);">
       <div>
         <div class="brand-tag">Prioridad 2 · Makeup</div>
         <div class="brand-name">Romand</div>
@@ -380,7 +376,7 @@
       <div class="pill-wrap"><span class="pill pill-warm">Makeup</span><span class="pill pill-cold">K-pop fans</span><span class="pill pill-hot">Alta rotación</span></div>
     </div>
 
-    <div class="brand-card" style="border-top:3px solid #c4b5fd;">
+    <div class="brand-card" style="border-top:2px solid var(--border);">
       <div>
         <div class="brand-tag">Prioridad 3 · Skincare</div>
         <div class="brand-name">Medicube</div>
@@ -390,7 +386,7 @@
       <div class="pill-wrap"><span class="pill pill-cold">Anti-age</span><span class="pill pill-cold">Manchas</span><span class="pill pill-warm">Premium</span></div>
     </div>
 
-    <div class="brand-card" style="border-top:3px solid #fdba74;">
+    <div class="brand-card" style="border-top:2px solid var(--border);">
       <div>
         <div class="brand-tag">Prioridad 3 · Skincare</div>
         <div class="brand-name">Purito Seoul</div>
@@ -592,7 +588,7 @@
     </div>
 
     <!-- Candidato 2: Anua Heartleaf -->
-    <div class="card" style="border-top:3px solid #a78bfa;">
+    <div class="card" style="border-top:2px solid var(--border);">
       <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:14px;">
         <div>
           <div style="font-size:11px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;">Candidato 2</div>
@@ -675,7 +671,7 @@
   <!-- Roles -->
   <div class="grid-2" style="margin-bottom:20px;">
 
-    <div class="card" style="border-top:3px solid #60a5fa;">
+    <div class="card" style="border-top:2px solid var(--border);">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:16px;">
         <div style="width:44px;height:44px;border-radius:12px;background:rgba(96,165,250,0.15);display:flex;align-items:center;justify-content:center;font-size:22px;">📣</div>
         <div>
@@ -1175,7 +1171,7 @@
       <div style="font-size:11px;color:var(--muted);margin-bottom:12px;">USD ganancia neta</div>
       <div style="font-size:12px;color:#5a5462;line-height:1.6;">CPA baja a $12–15 con el creativo ganador ya identificado. ~80 órdenes. El stock rota, se repone con la misma plata que entra. El negocio ya se financia solo.</div>
     </div>
-    <div class="card" style="border-top:3px solid #34d399;">
+    <div class="card" style="border-top:2px solid var(--border);">
       <div style="font-size:11px;font-weight:700;color:#34d399;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Mes 3 — Recompra</div>
       <div style="font-size:28px;font-weight:900;color:#34d399;margin-bottom:4px;">~$900–1.100</div>
       <div style="font-size:11px;color:var(--muted);margin-bottom:12px;">USD ganancia neta</div>
@@ -1274,11 +1270,8 @@
     .cl-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 8px; }
     .cl-item { display: flex; gap: 8px; align-items: flex-start; padding: 5px 0; border-bottom: 1px solid rgba(36,36,50,0.7); font-size: 12px; color: #8a8094; line-height: 1.5; }
     .cl-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .cl-num { background: rgba(232,93,138,0.15); color: #e85d8a; width: 18px; height: 18px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
-    .cl-num.blue { background: rgba(96,165,250,0.15); color: #60a5fa; }
-    .cl-num.green { background: rgba(52,211,153,0.15); color: #34d399; }
-    .cl-num.warn { background: rgba(251,191,36,0.15); color: #fbbf24; }
-    .cl-num.purple { background: rgba(167,139,250,0.15); color: #a78bfa; }
+    .cl-num { background: rgba(232,93,138,0.12); color: #e85d8a; width: 18px; height: 18px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    .cl-num.blue, .cl-num.green, .cl-num.warn, .cl-num.purple { background: rgba(232,93,138,0.12); color: #e85d8a; }
     .cl-text strong { color: var(--text); }
     .cl-link { color: var(--accent); text-decoration: none; font-size: 11px; font-weight: 600; }
     .cl-link:hover { text-decoration: underline; }
@@ -1301,7 +1294,7 @@
       <div class="cl-item"><div class="cl-num">5</div><div class="cl-text"><strong>Definir 5–6 SKUs iniciales</strong> — COSRX Snail Mucin 96% + 4 complementos de rutina. No más. Profundidad antes que amplitud.</div></div>
     </div>
 
-    <div class="cl-card" style="border-top:3px solid #60a5fa;">
+    <div class="cl-card" style="border-top:2px solid var(--border);">
       <div class="cl-title" style="color:#60a5fa;">Plataforma y pagos</div>
       <div class="cl-item"><div class="cl-num blue">6</div><div class="cl-text"><strong>Abrir Tienda Nube plan Emprendedor</strong> — conectar dominio propio (ya lo tenés) · <a href="https://www.tiendanube.com/planes-y-precios" target="_blank" class="cl-link">tiendanube.com/planes ↗</a></div></div>
       <div class="cl-item"><div class="cl-num blue">7</div><div class="cl-text"><strong>Activar Pago Nube</strong> — habilitar Transferencia bancaria (1.50% + IVA, CPT gratis) como método principal. Tarjeta como alternativa · <a href="https://www.tiendanube.com/pago-nube" target="_blank" class="cl-link">pagos ↗</a></div></div>
@@ -1313,7 +1306,7 @@
 
   <div class="cl-grid" style="margin-bottom:12px;">
 
-    <div class="cl-card" style="border-top:3px solid #34d399;">
+    <div class="cl-card" style="border-top:2px solid var(--border);">
       <div class="cl-title" style="color:#34d399;">Meta Ads — Luca</div>
       <div class="cl-item"><div class="cl-num green">10</div><div class="cl-text"><strong>Crear cuenta publicitaria nueva</strong> para el negocio. No mezclar con otras cuentas de clientes.</div></div>
       <div class="cl-item"><div class="cl-num green">11</div><div class="cl-text"><strong>Días 1–7: $50–60 USD/día</strong> con 3 creativos distintos (3 hooks diferentes). Objetivo: encontrar el ganador rápido.</div></div>
@@ -1322,7 +1315,7 @@
       <div class="cl-item"><div class="cl-num green">14</div><div class="cl-text"><strong>Instalar Pixel de Meta</strong> en Tienda Nube antes de gastar el primer peso en ads. Sin pixel no hay datos de conversión.</div></div>
     </div>
 
-    <div class="cl-card" style="border-top:3px solid #fbbf24;">
+    <div class="cl-card" style="border-top:2px solid var(--border);">
       <div class="cl-title" style="color:#fbbf24;">Operaciones — Paula</div>
       <div class="cl-item"><div class="cl-num warn">15</div><div class="cl-text"><strong>Stock inicial: $500 USD</strong> en distribuidores B2B locales — Snail Mucin héroe (mayoría) + complementos. Reponer con revenue apenas se venda.</div></div>
       <div class="cl-item"><div class="cl-num warn">16</div><div class="cl-text"><strong>Packaging</strong> — bolsa kraft o biodegradable, papel tissue, sticker de marca, tarjetita escrita a mano. Genera UGC orgánico y reseñas 5 estrellas.</div></div>
@@ -1340,53 +1333,53 @@
     <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
 
       <div>
-        <div style="font-size:10px;font-weight:700;color:#e85d8a;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Proveedores B2B locales (precio mayorista ARG)</div>
+        <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Proveedores B2B locales</div>
         <div class="ref-row">
-          <div class="ref-pill"><div class="ref-dot" style="background:#e85d8a;"></div><a href="https://maeum.com.ar" target="_blank">MAEUM ↗</a><span style="color:var(--muted);">— Skin1004, Anua, Beauty of Joseon, COSRX</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#e85d8a;"></div><a href="https://regybeauty.com" target="_blank">Regy Beauty B2B ↗</a><span style="color:var(--muted);">— COSRX, Some By Mi, Beauty of Joseon</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#e85d8a;"></div><a href="https://kosmeticos.com.ar/mayorista/" target="_blank">Kosmeticos.com.ar mayorista ↗</a><span style="color:var(--muted);">— Round Lab, Biodance, Skin1004</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#e85d8a;"></div><a href="https://my-kare.com/en/pages/wholesaler-kbeauty" target="_blank">MY-KARE B2B ↗</a><span style="color:var(--muted);">— mayorista K-beauty</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://maeum.com.ar" target="_blank">MAEUM ↗</a><span style="color:var(--muted);">— Skin1004, Anua, Beauty of Joseon, COSRX</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://regybeauty.com" target="_blank">Regy Beauty B2B ↗</a><span style="color:var(--muted);">— COSRX, Some By Mi, Beauty of Joseon</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://kosmeticos.com.ar/mayorista/" target="_blank">Kosmeticos mayorista ↗</a><span style="color:var(--muted);">— Round Lab, Biodance, Skin1004</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://my-kare.com/en/pages/wholesaler-kbeauty" target="_blank">MY-KARE B2B ↗</a><span style="color:var(--muted);">— mayorista K-beauty</span></div>
         </div>
       </div>
 
       <div>
-        <div style="font-size:10px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Fuente de producto — precio de referencia y wholesale Korea</div>
+        <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Precio de referencia y wholesale Korea</div>
         <div class="ref-row">
-          <div class="ref-pill"><div class="ref-dot" style="background:#60a5fa;"></div><a href="https://global.oliveyoung.com/product/detail?prdtNo=GA210000530" target="_blank">Olive Young — Snail Mucin ↗</a><span style="color:var(--muted);">— ~$18–21 USD retail</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#60a5fa;"></div><a href="https://www.yesstyle.com/en/cosrx-advanced-snail-96-mucin-power-essence-100ml/info.html/pid.1052684695" target="_blank">YesStyle — Snail Mucin ↗</a><span style="color:var(--muted);">— ~$15–21 USD retail</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#60a5fa;"></div><a href="https://wholesale.q-depot.com/product/cosrx-advanced-snail-96-mucin-power-essence-100ml" target="_blank">Q-depot wholesale ↗</a><span style="color:var(--muted);">— $9.15 USD/u · mín 60 u · Fase 2</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#60a5fa;"></div><a href="https://www.cosrx.com/products/advanced-snail-96-mucin-power-essence" target="_blank">COSRX oficial ↗</a><span style="color:var(--muted);">— referencia del producto</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://global.oliveyoung.com/product/detail?prdtNo=GA210000530" target="_blank">Olive Young — Snail Mucin ↗</a><span style="color:var(--muted);">— ~$18–21 USD retail</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://www.yesstyle.com/en/cosrx-advanced-snail-96-mucin-power-essence-100ml/info.html/pid.1052684695" target="_blank">YesStyle — Snail Mucin ↗</a><span style="color:var(--muted);">— ~$15–21 USD retail</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://wholesale.q-depot.com/product/cosrx-advanced-snail-96-mucin-power-essence-100ml" target="_blank">Q-depot wholesale ↗</a><span style="color:var(--muted);">— $9.15 USD/u · mín 60 u · Fase 2</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://www.cosrx.com/products/advanced-snail-96-mucin-power-essence" target="_blank">COSRX oficial ↗</a><span style="color:var(--muted);">— referencia del producto</span></div>
         </div>
       </div>
 
       <div>
-        <div style="font-size:10px;font-weight:700;color:#34d399;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Plataforma y pagos</div>
+        <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Plataforma y pagos</div>
         <div class="ref-row">
-          <div class="ref-pill"><div class="ref-dot" style="background:#34d399;"></div><a href="https://www.tiendanube.com/planes-y-precios" target="_blank">Tienda Nube — Planes ↗</a><span style="color:var(--muted);">— elegir plan Emprendedor para empezar</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#34d399;"></div><a href="https://ayuda.tiendanube.com/es_ES/pago-nube/cuales-son-las-comisiones-de-pago-nube" target="_blank">Pago Nube — tasas ↗</a><span style="color:var(--muted);">— transferencia 1.5% + IVA, CPT gratis</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#34d399;"></div><a href="https://www6.oca.com.ar/plataformaenvios/" target="_blank">OCA envíos ↗</a><span style="color:var(--muted);">— integración con Tienda Nube</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#34d399;"></div><a href="https://www.andreani.com/precios-productos" target="_blank">Andreani precios ↗</a><span style="color:var(--muted);">— ~$11–13K ARS por envío</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://www.tiendanube.com/planes-y-precios" target="_blank">Tienda Nube — Planes ↗</a><span style="color:var(--muted);">— plan Emprendedor para arrancar</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://ayuda.tiendanube.com/es_ES/pago-nube/cuales-son-las-comisiones-de-pago-nube" target="_blank">Pago Nube — tasas ↗</a><span style="color:var(--muted);">— transferencia 1.5% + IVA, CPT gratis</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://www6.oca.com.ar/plataformaenvios/" target="_blank">OCA envíos ↗</a><span style="color:var(--muted);">— integración Tienda Nube</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--accent);"></div><a href="https://www.andreani.com/precios-productos" target="_blank">Andreani precios ↗</a><span style="color:var(--muted);">— ~$11–13K ARS por envío</span></div>
         </div>
       </div>
 
       <div>
-        <div style="font-size:10px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Competidores — para monitorear precios y contenido</div>
+        <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Competidores — monitorear precios y contenido</div>
         <div class="ref-row">
-          <div class="ref-pill"><div class="ref-dot" style="background:#fbbf24;"></div><a href="https://skinko.com.ar" target="_blank">Skinko ↗</a><span style="color:var(--muted);">— 149K IG · referente del mercado local</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#fbbf24;"></div><a href="https://luxodia.com/marcas/cosrx/" target="_blank">Luxodia — COSRX ↗</a><span style="color:var(--muted);">— 114K IG · precios de referencia</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#fbbf24;"></div><a href="https://regybeauty.com/shop/" target="_blank">Regy Beauty tienda ↗</a><span style="color:var(--muted);">— catálogo y precios</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#fbbf24;"></div><a href="https://listado.mercadolibre.com.ar/cosrx-snail-96" target="_blank">MercadoLibre — Snail 96 ↗</a><span style="color:var(--muted);">— $50K–$70K ARS · múltiples vendedores</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--muted);"></div><a href="https://skinko.com.ar" target="_blank">Skinko ↗</a><span style="color:var(--muted);">— 149K IG</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--muted);"></div><a href="https://luxodia.com/marcas/cosrx/" target="_blank">Luxodia COSRX ↗</a><span style="color:var(--muted);">— 114K IG · precios referencia</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--muted);"></div><a href="https://regybeauty.com/shop/" target="_blank">Regy Beauty ↗</a><span style="color:var(--muted);">— catálogo y precios</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--muted);"></div><a href="https://listado.mercadolibre.com.ar/cosrx-snail-96" target="_blank">MercadoLibre Snail 96 ↗</a><span style="color:var(--muted);">— $50K–$70K ARS</span></div>
         </div>
       </div>
 
       <div>
-        <div style="font-size:10px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Instagram — cuentas a estudiar</div>
+        <div style="font-size:10px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Instagram — cuentas a estudiar</div>
         <div class="ref-row">
-          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/skinko.ar/" target="_blank">@skinko.ar ↗</a><span style="color:var(--muted);">— 149K · líder local</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/luxodia_cosmetica/" target="_blank">@luxodia_cosmetica ↗</a><span style="color:var(--muted);">— 114K · estética y contenido</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/anua_argentina/" target="_blank">@anua_argentina ↗</a><span style="color:var(--muted);">— 76K · contenido que funciona en ARG</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/cosrx/" target="_blank">@cosrx ↗</a><span style="color:var(--muted);">— +2M · formatos de contenido oficiales</span></div>
-          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/k.beauty.arg/" target="_blank">@k.beauty.arg ↗</a><span style="color:var(--muted);">— 48K · qué le interesa a la audiencia ARG</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--muted);"></div><a href="https://www.instagram.com/skinko.ar/" target="_blank">@skinko.ar ↗</a><span style="color:var(--muted);">— 149K</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--muted);"></div><a href="https://www.instagram.com/luxodia_cosmetica/" target="_blank">@luxodia_cosmetica ↗</a><span style="color:var(--muted);">— 114K</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--muted);"></div><a href="https://www.instagram.com/anua_argentina/" target="_blank">@anua_argentina ↗</a><span style="color:var(--muted);">— 76K</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--muted);"></div><a href="https://www.instagram.com/cosrx/" target="_blank">@cosrx ↗</a><span style="color:var(--muted);">— +2M</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:var(--muted);"></div><a href="https://www.instagram.com/k.beauty.arg/" target="_blank">@k.beauty.arg ↗</a><span style="color:var(--muted);">— 48K</span></div>
         </div>
       </div>
 
