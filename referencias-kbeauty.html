@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K-Beauty Argentina — Referencia de Negocio</title>
+<style>
+  :root {
+    --bg: #0c0c10;
+    --bg2: #13131a;
+    --bg3: #1c1c26;
+    --accent: #e85d8a;
+    --accent2: #c43d6a;
+    --text: #f0ece8;
+    --muted: #6b6574;
+    --border: #242432;
+    --win: #34d399;
+    --lose: #f87171;
+    --warn: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); line-height: 1.6; font-size: 14px; }
+
+  .hero {
+    background: linear-gradient(135deg, #180a10 0%, #100c10 50%, #0c0c10 100%);
+    border-bottom: 1px solid var(--border);
+    padding: 48px 40px 36px;
+    margin-top: 47px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before { content: ''; position: absolute; top: -80px; right: -80px; width: 500px; height: 500px; background: radial-gradient(circle, rgba(232,93,138,0.1) 0%, transparent 65%); pointer-events: none; }
+  .hero h1 { font-size: 36px; font-weight: 800; background: linear-gradient(135deg, #e85d8a, #f9a8c9, #c43d6a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 8px; }
+  .hero p { color: #7a7060; font-size: 15px; }
+  .hero .meta { margin-top: 16px; display: flex; gap: 10px; flex-wrap: wrap; }
+
+  .tag { display: inline-flex; align-items: center; padding: 4px 12px; border-radius: 999px; font-size: 11px; font-weight: 600; letter-spacing: 0.5px; }
+  .tag-pink { background: rgba(232,93,138,0.12); color: #e85d8a; border: 1px solid rgba(232,93,138,0.3); }
+  .tag-green { background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.25); }
+  .tag-blue { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.25); }
+  .tag-purple { background: rgba(167,139,250,0.1); color: #a78bfa; border: 1px solid rgba(167,139,250,0.25); }
+  .tag-muted { background: rgba(107,101,116,0.15); color: #8b8494; border: 1px solid rgba(107,101,116,0.3); }
+  .tag-warn { background: rgba(251,191,36,0.1); color: #fbbf24; border: 1px solid rgba(251,191,36,0.25); }
+
+  nav { background: var(--bg2); border-bottom: 1px solid var(--border); padding: 0 40px; display: flex; align-items: center; gap: 2px; position: fixed; top: 0; left: 0; right: 0; z-index: 1000; }
+  .nav-links { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: none; flex: 1; }
+  .nav-links::-webkit-scrollbar { display: none; }
+  nav a { color: var(--muted); text-decoration: none; padding: 14px 13px; font-size: 12px; font-weight: 600; letter-spacing: 0.4px; white-space: nowrap; border-bottom: 2px solid transparent; transition: all 0.2s; }
+  nav a:hover { color: var(--text); border-bottom-color: var(--accent); }
+
+  .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 10px; color: var(--text); flex-direction: column; gap: 5px; margin-left: auto; }
+  .hamburger span { display: block; width: 22px; height: 2px; background: var(--text); border-radius: 2px; transition: all 0.25s; }
+  .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .hamburger.open span:nth-child(2) { opacity: 0; }
+  .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  .mobile-menu { display: none; position: fixed; top: 45px; left: 0; right: 0; background: var(--bg2); border-bottom: 1px solid var(--border); z-index: 999; padding: 8px 0; box-shadow: 0 8px 32px rgba(0,0,0,0.5); }
+  .mobile-menu.open { display: block; }
+  .mobile-menu a { display: block; color: var(--muted); text-decoration: none; padding: 13px 24px; font-size: 14px; font-weight: 600; border-left: 3px solid transparent; transition: all 0.15s; }
+  .mobile-menu a:hover { color: var(--text); border-left-color: var(--accent); background: rgba(232,93,138,0.05); }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    nav { padding: 0 16px; height: 45px; }
+  }
+
+  .container { max-width: 1340px; margin: 0 auto; padding: 44px 40px; }
+  section { margin-bottom: 64px; }
+  .section-title { font-size: 21px; font-weight: 800; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
+  .section-sub { color: var(--muted); font-size: 13px; margin-bottom: 26px; }
+
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 22px; transition: border-color 0.2s; }
+  .card:hover { border-color: rgba(232,93,138,0.25); }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .grid-auto { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+  @media (max-width: 900px) { .grid-3 { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 700px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+  @media (max-width: 600px) {
+    .grid-auto { grid-template-columns: 1fr; }
+    .container { padding: 14px; }
+    .hero { padding: 24px 14px 18px; margin-top: 45px; }
+    .hero h1 { font-size: 22px; }
+    .section-title { font-size: 17px; }
+    .section-sub { font-size: 12px; }
+    section { margin-bottom: 48px; }
+    .card { padding: 16px; }
+  }
+
+  .stat-card { background: var(--bg3); border: 1px solid var(--border); border-radius: 14px; padding: 22px; text-align: center; }
+  .stat-number { font-size: 38px; font-weight: 900; line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-size: 11px; color: var(--muted); font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; }
+  .stat-sub { font-size: 12px; color: #5a5462; margin-top: 5px; }
+
+  .num-pink { background: linear-gradient(135deg, #e85d8a, #f9a8c9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .num-green { background: linear-gradient(135deg, #34d399, #6ee7b7); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .num-blue { background: linear-gradient(135deg, #60a5fa, #93c5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .num-purple { background: linear-gradient(135deg, #a78bfa, #c4b5fd); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+  .num-warn { background: linear-gradient(135deg, #fbbf24, #fde68a); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+
+  .bench-table { width: 100%; border-collapse: collapse; }
+  .bench-table th { text-align: left; padding: 10px 14px; font-size: 11px; font-weight: 700; letter-spacing: 0.8px; text-transform: uppercase; color: var(--muted); border-bottom: 1px solid var(--border); }
+  .bench-table td { padding: 12px 14px; border-bottom: 1px solid rgba(36,36,50,0.8); font-size: 13px; vertical-align: middle; }
+  .bench-table tr:last-child td { border-bottom: none; }
+  .bench-table tr:hover td { background: rgba(232,93,138,0.03); }
+
+  .pb { display: inline-block; padding: 2px 8px; border-radius: 6px; font-size: 12px; font-weight: 700; }
+  .pb-lux { background: rgba(248,113,113,0.1); color: #f87171; border: 1px solid rgba(248,113,113,0.2); }
+  .pb-pre { background: rgba(232,93,138,0.12); color: #e85d8a; border: 1px solid rgba(232,93,138,0.25); }
+  .pb-mid { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.2); }
+  .pb-bud { background: rgba(107,101,116,0.15); color: #8b8494; border: 1px solid rgba(107,101,116,0.25); }
+  .pb-us { background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+
+  .brand-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 18px 20px; display: flex; flex-direction: column; gap: 10px; transition: border-color 0.2s; }
+  .brand-card:hover { border-color: rgba(232,93,138,0.3); }
+  .brand-name { font-size: 16px; font-weight: 800; color: var(--text); }
+  .brand-tag { font-size: 10px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; color: var(--accent); margin-bottom: 2px; }
+  .brand-desc { font-size: 12px; color: #5a5462; line-height: 1.6; }
+  .brand-why { font-size: 12px; color: #7a6074; line-height: 1.5; font-style: italic; }
+
+  .ig-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 18px; display: flex; flex-direction: column; gap: 10px; }
+  .ig-name { font-size: 15px; font-weight: 800; }
+  .ig-handle a { color: var(--accent); text-decoration: none; font-size: 12px; }
+  .ig-followers { font-size: 30px; font-weight: 900; color: var(--accent); }
+  .ig-flabel { font-size: 10px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.8px; }
+  .ig-note { font-size: 12px; color: #5a5462; line-height: 1.6; }
+
+  .hook-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 18px 22px; border-left: 3px solid var(--accent); }
+  .hook-card.blue { border-left-color: #60a5fa; }
+  .hook-card.green { border-left-color: #34d399; }
+  .hook-card.purple { border-left-color: #a78bfa; }
+  .hook-card.warn { border-left-color: #fbbf24; }
+  .hook-label { font-size: 11px; font-weight: 700; letter-spacing: 1px; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+  .hook-text { font-size: 16px; font-weight: 700; line-height: 1.4; margin-bottom: 10px; }
+  .hook-why { font-size: 13px; color: #5a5462; line-height: 1.6; }
+  .grid-hooks { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 14px; margin-bottom: 14px; }
+
+  .pill-wrap { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
+  .pill { padding: 5px 13px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+  .pill-cold { background: rgba(96,165,250,0.1); color: #60a5fa; border: 1px solid rgba(96,165,250,0.2); }
+  .pill-warm { background: rgba(232,93,138,0.1); color: #e85d8a; border: 1px solid rgba(232,93,138,0.2); }
+  .pill-hot { background: rgba(52,211,153,0.1); color: #34d399; border: 1px solid rgba(52,211,153,0.2); }
+
+  .warn-box { background: rgba(251,191,36,0.06); border: 1px solid rgba(251,191,36,0.2); border-radius: 10px; padding: 14px 18px; font-size: 13px; color: #c4a060; }
+
+  .divider { height: 1px; background: linear-gradient(90deg, transparent, var(--border), transparent); margin: 44px 0; }
+
+  .timeline { position: relative; padding-left: 26px; }
+  .timeline::before { content: ''; position: absolute; left: 9px; top: 0; bottom: 0; width: 2px; background: var(--border); }
+  .tl-item { position: relative; margin-bottom: 22px; }
+  .tl-item::before { content: ''; position: absolute; left: -21px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: var(--accent); border: 2px solid var(--bg); }
+  .tl-week { font-size: 10px; font-weight: 800; color: var(--accent); text-transform: uppercase; letter-spacing: 1.2px; margin-bottom: 3px; }
+  .tl-title { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+  .tl-desc { font-size: 13px; color: #5a5462; }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-links">
+    <a href="#resumen">📊 Resumen</a>
+    <a href="#mercado">🌏 Mercado</a>
+    <a href="#marcas">✨ Marcas</a>
+    <a href="#competidores">🏆 Competidores</a>
+    <a href="#instagram">📸 Instagram</a>
+    <a href="#audiencias">🎯 Audiencias</a>
+    <a href="#hooks">🪝 Hooks</a>
+    <a href="#finanzas">💰 Finanzas</a>
+    <a href="#plan">🗓️ Plan</a>
+  </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#resumen" class="mobile-link">📊 Resumen</a>
+  <a href="#mercado" class="mobile-link">🌏 Mercado</a>
+  <a href="#marcas" class="mobile-link">✨ Marcas</a>
+  <a href="#competidores" class="mobile-link">🏆 Competidores</a>
+  <a href="#instagram" class="mobile-link">📸 Instagram</a>
+  <a href="#audiencias" class="mobile-link">🎯 Audiencias</a>
+  <a href="#hooks" class="mobile-link">🪝 Hooks</a>
+  <a href="#finanzas" class="mobile-link">💰 Finanzas</a>
+  <a href="#plan" class="mobile-link">🗓️ Plan</a>
+</div>
+
+<script>
+  const btn = document.getElementById('hamburger');
+  const menu = document.getElementById('mobileMenu');
+  btn.addEventListener('click', () => { btn.classList.toggle('open'); menu.classList.toggle('open'); });
+  document.querySelectorAll('.mobile-link').forEach(l => l.addEventListener('click', () => { btn.classList.remove('open'); menu.classList.remove('open'); }));
+</script>
+
+<div class="hero">
+  <h1>K-Beauty Argentina — Referencia de Negocio</h1>
+  <p>Importar y vender cosmética coreana en Argentina · Mercado · Competidores · Marcas · Plan</p>
+  <div class="meta">
+    <span class="tag tag-pink">Mayo 2026</span>
+    <span class="tag tag-green">Mercado en expansión</span>
+    <span class="tag tag-blue">TikTok + Instagram driven</span>
+    <span class="tag tag-purple">K-pop → K-beauty → K-skincare</span>
+    <span class="tag tag-warn">Nicho con pocos jugadores fuertes en ARG</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ═══════ RESUMEN ═══════ -->
+<section id="resumen">
+  <div class="section-title"><span>📊</span> Resumen Ejecutivo</div>
+  <div class="section-sub">La oportunidad de negocio en una pantalla</div>
+
+  <div class="grid-auto" style="margin-bottom:20px;">
+    <div class="stat-card">
+      <div class="stat-number num-pink">$6.7M</div>
+      <div class="stat-label">Mercado K-Beauty LATAM</div>
+      <div class="stat-sub">USD (2022) · se duplica para 2030</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number num-green">2x</div>
+      <div class="stat-label">Crecimiento proyectado</div>
+      <div class="stat-sub">Hasta 2030 en la región</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number num-blue">50+</div>
+      <div class="stat-label">Marcas coreanas importables</div>
+      <div class="stat-sub">Con demanda real en Argentina</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number num-purple">76K</div>
+      <div class="stat-label">Followers — Anua Argentina</div>
+      <div class="stat-sub">Sólo una marca, sólo en IG</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number num-warn">48K</div>
+      <div class="stat-label">Followers — K-Beauty Arg</div>
+      <div class="stat-sub">Cuenta genérica del nicho</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number num-pink">10+</div>
+      <div class="stat-label">Competidores activos en ARG</div>
+      <div class="stat-sub">Ninguno dominante todavía</div>
+    </div>
+  </div>
+
+  <div class="card">
+    <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px;">La oportunidad en una línea</div>
+    <p style="font-size:15px;line-height:1.7;color:var(--text);">El mercado K-beauty en Argentina está creciendo impulsado por TikTok, K-pop y una cultura de skincare que se volvió aspiracional entre mujeres de 18 a 35. <strong>Hay más de 10 jugadores locales pero ninguno domina</strong> — la mayoría son pequeñas tiendas sin capacidad de volumen ni marketing serio. La oportunidad es entrar con una propuesta curada, bien fotografiada y con Meta Ads que lleguen a quien ya está buscando estos productos.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ MERCADO ═══════ -->
+<section id="mercado">
+  <div class="section-title"><span>🌏</span> Mapa del Mercado</div>
+  <div class="section-sub">Por qué K-beauty en Argentina tiene sentido ahora</div>
+
+  <div class="grid-3" style="margin-bottom:20px;">
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">El driver principal</div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:8px;">TikTok → Deseo → Compra</div>
+      <div style="font-size:13px;color:#5a5462;line-height:1.6;">Los productos coreanos se viralizan en TikTok y Reels antes de estar disponibles en Argentina. La demanda ya existe cuando alguien importa — el producto llega a un mercado caliente. COSRX, Anua, Beauty of Joseon tienen millones de views antes de llegar al país.</div>
+    </div>
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">La ola cultural</div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:8px;">K-pop → K-drama → K-beauty</div>
+      <div style="font-size:13px;color:#5a5462;line-height:1.6;">BTS, Blackpink, Netflix con doramas — la cultura coreana ya tiene base instalada en Argentina. Las fans del K-pop son las primeras compradoras de K-beauty. Luego viene el resto que quiere "la piel de los coreanos". El nicho tiene identidad propia.</div>
+    </div>
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:#34d399;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">La diferencia real</div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:8px;">Los ingredientes que funcionan</div>
+      <div style="font-size:13px;color:#5a5462;line-height:1.6;">Niacinamida, centella asiatica, snail mucin, retinol, ácido salicílico — la cosmética coreana formuló antes que occidente y a precios bajos. El resultado es real y documentado en millones de reseñas. No es hype: la gente lo compra, lo usa, y vuelve a comprar.</div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:14px;">Tendencias más fuertes 2025–2026</div>
+      <div style="display:flex;flex-direction:column;gap:10px;">
+        <div style="display:flex;gap:10px;align-items:flex-start;"><span style="background:rgba(232,93,138,0.15);color:#e85d8a;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;flex-shrink:0;">HOT</span><span style="font-size:13px;color:#8a7080;">Glass Skin — piel perfecta, poros invisibles. Todo lo que la prometa vuela.</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;"><span style="background:rgba(232,93,138,0.15);color:#e85d8a;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;flex-shrink:0;">HOT</span><span style="font-size:13px;color:#8a7080;">Sunscreen como paso de rutina. Los coreanos lo normalizaron — las argentinas lo adoptaron.</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;"><span style="background:rgba(251,191,36,0.15);color:#fbbf24;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;flex-shrink:0;">CRECIENDO</span><span style="font-size:13px;color:#8a7080;">Skincare masculino. Hombres empezando a adoptar rutinas, producto específico.</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;"><span style="background:rgba(251,191,36,0.15);color:#fbbf24;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;flex-shrink:0;">CRECIENDO</span><span style="font-size:13px;color:#8a7080;">Slugging + barreras de piel. Skincare minimalista, pocas marcas pero elegidas.</span></div>
+        <div style="display:flex;gap:10px;align-items:flex-start;"><span style="background:rgba(96,165,250,0.15);color:#60a5fa;padding:3px 9px;border-radius:6px;font-size:11px;font-weight:700;flex-shrink:0;">ESTABLE</span><span style="font-size:13px;color:#8a7080;">Tratamiento de manchas y acné. Siempre demanda, entrada fácil al nicho.</span></div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:14px;">Por qué ahora — ventana de entrada</div>
+      <div style="font-size:13px;color:#8a7080;line-height:1.7;">
+        <p style="margin-bottom:10px;">🇰🇷 <strong style="color:var(--text);">El producto ya tiene demanda creada</strong> — TikTok hace el trabajo de awareness gratis. Solo hay que estar disponible cuando buscan.</p>
+        <p style="margin-bottom:10px;">📦 <strong style="color:var(--text);">Logística más accesible que antes</strong> — hay distribuidores B2B en Argentina. No hace falta importar directo de Corea para empezar.</p>
+        <p style="margin-bottom:10px;">🏪 <strong style="color:var(--text);">Competencia fragmentada</strong> — ningún jugador local tiene marketing serio. Con Meta Ads y buen contenido se puede escalar rápido.</p>
+        <p>💳 <strong style="color:var(--text);">Ticket medio manejable</strong> — los productos están en rango $20K–$80K ARS, ideal para impulso de compra y cuotas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ MARCAS ═══════ -->
+<section id="marcas">
+  <div class="section-title"><span>✨</span> Marcas — Qué Importar</div>
+  <div class="section-sub">Las marcas coreanas con mayor demanda real en Argentina — priorizadas por tracción en redes y facilidad de venta</div>
+
+  <div class="grid-auto" style="margin-bottom:16px;">
+
+    <div class="brand-card" style="border-top:3px solid #e85d8a;">
+      <div>
+        <div class="brand-tag">Prioridad 1 · Skincare</div>
+        <div class="brand-name">COSRX</div>
+      </div>
+      <div class="brand-desc">La marca más mencionada en TikTok skincare. Snail Mucin 96%, AHA/BHA toner, Propolis serum. Ingredientes activos, packaging simple, resultados documentados. 30,300 posts patrocinados globales.</div>
+      <div class="brand-why">La gente ya la busca por nombre. Reducís el trabajo de convencer — solo hay que estar disponible y bien fotografiado.</div>
+      <div class="pill-wrap"><span class="pill pill-cold">Acné</span><span class="pill pill-cold">Hidratación</span><span class="pill pill-warm">Glass skin</span></div>
+    </div>
+
+    <div class="brand-card" style="border-top:3px solid #a78bfa;">
+      <div>
+        <div class="brand-tag">Prioridad 1 · Skincare</div>
+        <div class="brand-name">Anua</div>
+      </div>
+      <div class="brand-desc">Heartleaf 77% toner y serum — virales en Argentina. Cuenta oficial en ARG con 76K seguidores. Centella + ingredientes calmantes. Packaging minimalista aspiracional.</div>
+      <div class="brand-why">Ya tiene comunidad propia en Argentina. Vender Anua es más fácil que crear demanda — solo hay que capitalizar lo que ya existe.</div>
+      <div class="pill-wrap"><span class="pill pill-cold">Piel sensible</span><span class="pill pill-warm">Viral IG/TT</span><span class="pill pill-hot">Alta rotación</span></div>
+    </div>
+
+    <div class="brand-card" style="border-top:3px solid #fbbf24;">
+      <div>
+        <div class="brand-tag">Prioridad 1 · Skincare</div>
+        <div class="brand-name">Beauty of Joseon</div>
+      </div>
+      <div class="brand-desc">Sunscreen Relief Sun y Dynasty Cream, Glow Serum. Estética histórica coreana, packaging hermoso. Muy compartido en contenido de lifestyle. 12,800 posts patrocinados globales.</div>
+      <div class="brand-why">El packaging vende solo en redes. Fácil de fotografiar, fácil de mostrar en reels. Ideal para contenido UGC.</div>
+      <div class="pill-wrap"><span class="pill pill-cold">Sunscreen</span><span class="pill pill-warm">Lifestyle</span><span class="pill pill-cold">Anti-age</span></div>
+    </div>
+
+    <div class="brand-card" style="border-top:3px solid #34d399;">
+      <div>
+        <div class="brand-tag">Prioridad 2 · Skincare</div>
+        <div class="brand-name">Skin1004</div>
+      </div>
+      <div class="brand-desc">Centella Ampoule — el producto más popular en rutinas de piel sensible. Precio accesible, frasco grande, result visible. Muy vendido en distribuidores locales argentinos.</div>
+      <div class="brand-why">Precio entry-level que facilita primera compra. Buena puerta de entrada al catálogo — quién compra el ampoule vuelve por más.</div>
+      <div class="pill-wrap"><span class="pill pill-cold">Centella</span><span class="pill pill-warm">Piel sensible</span><span class="pill pill-hot">Ticket bajo</span></div>
+    </div>
+
+    <div class="brand-card" style="border-top:3px solid #60a5fa;">
+      <div>
+        <div class="brand-tag">Prioridad 2 · Skincare</div>
+        <div class="brand-name">Some By Mi</div>
+      </div>
+      <div class="brand-desc">AHA BHA PHA 30 days miracle toner — el nombre es el hook. Para acné, manchas, poros. Antes/después muy fácil de generar con este producto.</div>
+      <div class="brand-why">El "30 days miracle" es un gancho narrativo perfecto para ads. Promesa clara, resultado visible, antes/después que convierte.</div>
+      <div class="pill-wrap"><span class="pill pill-cold">Acné</span><span class="pill pill-cold">Manchas</span><span class="pill pill-warm">Hook fuerte</span></div>
+    </div>
+
+    <div class="brand-card" style="border-top:3px solid #f87171;">
+      <div>
+        <div class="brand-tag">Prioridad 2 · Makeup</div>
+        <div class="brand-name">Romand</div>
+      </div>
+      <div class="brand-desc">Tintes labiales, cushions y base. El favorito de las K-pop fans. Colores únicos, duración real, precios accesibles. Muy pedido en Argentina por quienes siguen la moda coreana.</div>
+      <div class="brand-why">Diversifica el catálogo hacia makeup. Ticket bajo, alta frecuencia de compra, colores nuevos cada temporada = recompra natural.</div>
+      <div class="pill-wrap"><span class="pill pill-warm">Makeup</span><span class="pill pill-cold">K-pop fans</span><span class="pill pill-hot">Alta rotación</span></div>
+    </div>
+
+    <div class="brand-card" style="border-top:3px solid #c4b5fd;">
+      <div>
+        <div class="brand-tag">Prioridad 3 · Skincare</div>
+        <div class="brand-name">Medicube</div>
+      </div>
+      <div class="brand-desc">Kojic Acid, Age-R Booster Pro (dispositivo). Segmento más premium. Viral en TikTok por transformaciones. Skinko lo tiene como producto destacado.</div>
+      <div class="brand-why">Ticket alto = mejor margen por venta. El dispositivo Age-R crea ecosistema de compra recurrente con los sueros compatibles.</div>
+      <div class="pill-wrap"><span class="pill pill-cold">Anti-age</span><span class="pill pill-cold">Manchas</span><span class="pill pill-warm">Premium</span></div>
+    </div>
+
+    <div class="brand-card" style="border-top:3px solid #fdba74;">
+      <div>
+        <div class="brand-tag">Prioridad 3 · Skincare</div>
+        <div class="brand-name">Purito Seoul</div>
+      </div>
+      <div class="brand-desc">Sunscreen Centella y Daily Go-To Cleanser. Formulación limpia, sin fragancias, dermatológicamente testeada. Para piel sensible y minimalistas del skincare.</div>
+      <div class="brand-why">Atrae al segmento "clean beauty" que lee ingredientes. Cliente con criterio = cliente leal y que recomienda.</div>
+      <div class="pill-wrap"><span class="pill pill-cold">Clean beauty</span><span class="pill pill-cold">Sunscreen</span><span class="pill pill-warm">Piel sensible</span></div>
+    </div>
+
+  </div>
+
+  <div class="warn-box">
+    <strong style="color:var(--warn);">Estrategia de catálogo:</strong> Empezar con 3–5 marcas Prioridad 1 y máximo 10–15 productos por marca. Más SKUs = más capital inmovilizado y más difícil de fotografiar bien. Profundidad antes que amplitud. Cuando una marca rota bien, agregar la siguiente.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ COMPETIDORES ═══════ -->
+<section id="competidores">
+  <div class="section-title"><span>🏆</span> Competidores en Argentina</div>
+  <div class="section-sub">Quiénes están vendiendo K-beauty en Argentina hoy y cómo se posicionan</div>
+
+  <div class="card" style="overflow-x:auto;margin-bottom:16px;">
+    <table class="bench-table">
+      <thead>
+        <tr><th>Tienda</th><th>Precio ARS</th><th>Segmento</th><th>Marcas clave</th><th>Diferencial</th><th>Canal</th><th>Web</th></tr>
+      </thead>
+      <tbody>
+        <tr><td style="font-weight:700;">Skinko</td><td>$15K–$235K</td><td><span class="pb pb-pre">Premium</span></td><td style="font-size:12px;color:var(--muted);">Medicube, COSRX, Anua, Purito, 50+ marcas</td><td style="font-size:12px;color:var(--muted);">Lanzó Sep 2025, curación aspiracional, "glass skin"</td><td><span style="color:#34d399;font-weight:700;">E-commerce + RRSS</span></td><td><a href="https://skinko.com.ar" target="_blank" style="color:var(--accent);text-decoration:none;font-size:12px;">skinko.com.ar ↗</a></td></tr>
+        <tr><td style="font-weight:700;">Luxodia</td><td>$4.9K–$165K</td><td><span class="pb pb-pre">Premium</span></td><td style="font-size:12px;color:var(--muted);">Anua, COSRX, Skin1004, Romand, VT, Tocobo</td><td style="font-size:12px;color:var(--muted);">"Lo mejor del K-beauty en ARG", ANMAT, 6 cuotas</td><td><span style="color:#34d399;font-weight:700;">E-commerce + IG</span></td><td><a href="https://luxodia.com" target="_blank" style="color:var(--accent);text-decoration:none;font-size:12px;">luxodia.com ↗</a></td></tr>
+        <tr><td style="font-weight:700;">Regy Beauty</td><td>$17K–$130K</td><td><span class="pb pb-mid">Mid</span></td><td style="font-size:12px;color:var(--muted);">Beauty of Joseon, COSRX, Some By Mi, Tocobo</td><td style="font-size:12px;color:var(--muted);">Loyalty points, samples gratis, WhatsApp consultas, B2B</td><td><span style="color:#34d399;font-weight:700;">E-commerce + B2B</span></td><td><a href="https://regybeauty.com" target="_blank" style="color:var(--accent);text-decoration:none;font-size:12px;">regybeauty.com ↗</a></td></tr>
+        <tr><td style="font-weight:700;">Maeum</td><td>Consultar</td><td><span class="pb pb-mid">Mid</span></td><td style="font-size:12px;color:var(--muted);">Skin1004, Beauty of Joseon, Anua, Haruharu Wonder</td><td style="font-size:12px;color:var(--muted);">Distribuidor mayorista + minorista, B2B verificado</td><td><span style="color:#fbbf24;font-weight:700;">E-commerce + B2B</span></td><td style="font-size:12px;color:var(--muted);">B2B directo</td></tr>
+        <tr><td style="font-weight:700;">Karita Koreana</td><td>Consultar</td><td><span class="pb pb-bud">Budget</span></td><td style="font-size:12px;color:var(--muted);">Variado, enfoque en reventa</td><td style="font-size:12px;color:var(--muted);">Sección revendedoras, validación en 1 día, precios por volumen</td><td><span style="color:#fbbf24;font-weight:700;">B2B reventa</span></td><td style="font-size:12px;color:var(--muted);">B2B directo</td></tr>
+        <tr><td style="font-weight:700;">The Korean Root</td><td>Consultar</td><td><span class="pb pb-mid">Mid</span></td><td style="font-size:12px;color:var(--muted);">Variado K-beauty</td><td style="font-size:12px;color:var(--muted);">Tienda online Argentina</td><td><span style="color:#fbbf24;font-weight:700;">E-commerce</span></td><td><a href="https://koreanroot.com.ar" target="_blank" style="color:var(--accent);text-decoration:none;font-size:12px;">koreanroot.com.ar ↗</a></td></tr>
+        <tr><td style="font-weight:700;">Beauty24</td><td>Consultar</td><td><span class="pb pb-mid">Mid</span></td><td style="font-size:12px;color:var(--muted);">Sección K-beauty dentro de una perfumería</td><td style="font-size:12px;color:var(--muted);">Canal tradicional perfumería + online</td><td><span style="color:#60a5fa;font-weight:700;">Perfumería + web</span></td><td><a href="https://beauty24.com.ar" target="_blank" style="color:var(--accent);text-decoration:none;font-size:12px;">beauty24.com.ar ↗</a></td></tr>
+        <tr style="background:rgba(232,93,138,0.03);">
+          <td style="font-weight:800;color:var(--accent);">👉 Tu tienda</td>
+          <td style="font-weight:800;color:#34d399;">A definir</td>
+          <td><span class="pb pb-us">Nuestro</span></td>
+          <td style="font-size:12px;color:var(--muted);">COSRX, Anua, Beauty of Joseon + 2–3 más</td>
+          <td style="font-size:12px;color:var(--muted);">Catálogo curado, fotografía real, Meta Ads, historia detrás de cada marca</td>
+          <td style="color:#34d399;font-weight:700;">—</td>
+          <td>—</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:12px;">Conclusión del panorama competitivo</div>
+    <p style="font-size:13px;color:#8a7080;line-height:1.7;">Hay más de 10 jugadores pero <strong style="color:var(--text);">ninguno tiene escala real</strong>. La mayoría son tiendas chicas con poco o nulo presupuesto de ads. El que entre con Meta Ads bien ejecutados + contenido consistente puede posicionarse rápido como referente. La ventana es ahora — antes de que alguno levante capital o entre una multinacional.</p>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ INSTAGRAM ═══════ -->
+<section id="instagram">
+  <div class="section-title"><span>📸</span> Instagram — Cuentas de Referencia</div>
+  <div class="section-sub">Qué cuentas espiar — para entender qué contenido funciona en el nicho K-beauty en Argentina y el mundo</div>
+
+  <div class="grid-3" style="margin-bottom:20px;">
+
+    <div class="ig-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div><div class="ig-name">Anua Argentina Oficial</div><div class="ig-handle"><a href="https://www.instagram.com/anua_argentina/" target="_blank">@anua_argentina ↗</a></div></div>
+        <span class="tag tag-pink">Activo · ARG</span>
+      </div>
+      <div><div class="ig-followers">76K</div><div class="ig-flabel">Seguidores</div></div>
+      <div class="ig-note">Cuenta oficial de Anua en Argentina — la prueba de que el mercado existe. <strong style="color:var(--text);">Ver qué posts generan más engagement</strong> — eso es lo que quiere ver la audiencia argentina de K-beauty.</div>
+    </div>
+
+    <div class="ig-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div><div class="ig-name">K-Beauty Argentina</div><div class="ig-handle"><a href="https://www.instagram.com/k.beauty.arg/" target="_blank">@k.beauty.arg ↗</a></div></div>
+        <span class="tag tag-pink">Activo · ARG</span>
+      </div>
+      <div><div class="ig-followers">48K</div><div class="ig-flabel">Seguidores</div></div>
+      <div class="ig-note">Cuenta genérica del nicho en Argentina. 48K sin ser una marca — demuestra la demanda de contenido sobre K-beauty local. <strong style="color:var(--text);">Estudiar qué publica</strong> para entender los intereses de la audiencia.</div>
+    </div>
+
+    <div class="ig-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div><div class="ig-name">Skinko</div><div class="ig-handle"><a href="https://www.instagram.com/skinko.ar/" target="_blank">@skinko.ar ↗</a></div></div>
+        <span class="tag tag-pink">Activo · ARG</span>
+      </div>
+      <div><div class="ig-followers">n/d</div><div class="ig-flabel">Seguidores</div></div>
+      <div class="ig-note">Competidor directo lanzado en Sep 2025. Ver su estética, frecuencia de posteo y qué productos destacan. <strong style="color:var(--text);">Referencia de posicionamiento aspiracional</strong> en el mercado local.</div>
+    </div>
+
+    <div class="ig-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div><div class="ig-name">Luxodia</div><div class="ig-handle"><a href="https://www.instagram.com/luxodia_cosmetica/" target="_blank">@luxodia_cosmetica ↗</a></div></div>
+        <span class="tag tag-warn">Activo · ARG</span>
+      </div>
+      <div><div class="ig-followers">n/d</div><div class="ig-flabel">Seguidores</div></div>
+      <div class="ig-note">Otro competidor local. "Lo mejor del K-beauty en Argentina", ANMAT. Ver su catálogo visual, cómo fotografían los productos y qué formatos usan para vender.</div>
+    </div>
+
+    <div class="ig-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div><div class="ig-name">COSRX Official</div><div class="ig-handle"><a href="https://www.instagram.com/cosrx/" target="_blank">@cosrx ↗</a></div></div>
+        <span class="tag tag-blue">Global · Korea</span>
+      </div>
+      <div><div class="ig-followers">+2M</div><div class="ig-flabel">Seguidores</div></div>
+      <div class="ig-note">La marca más grande del nicho. Ver sus formatos de contenido oficiales — ingredientes explicados, rutinas, UGC. <strong style="color:var(--text);">Referencia de cómo presentar los productos</strong> de forma que conviertan.</div>
+    </div>
+
+    <div class="ig-card">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div><div class="ig-name">KBeautyCafe</div><div class="ig-handle"><a href="https://www.instagram.com/kbeautycafe/" target="_blank">@kbeautycafe ↗</a></div></div>
+        <span class="tag tag-purple">Referencia · Global</span>
+      </div>
+      <div><div class="ig-followers">n/d</div><div class="ig-flabel">Seguidores</div></div>
+      <div class="ig-note">Cuenta de contenido educativo sobre K-beauty con Anua, COSRX, Beauty of Joseon. Ver cómo explica los productos y los formatos que generan más saves — eso es lo que busca la audiencia.</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ AUDIENCIAS ═══════ -->
+<section id="audiencias">
+  <div class="section-title"><span>🎯</span> Audiencias — A Quién Vender</div>
+  <div class="section-sub">Perfiles de comprador en Argentina para K-beauty — cada uno necesita un mensaje distinto</div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Perfil 1 — Frío</div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:8px;">La que descubrió K-beauty en TikTok</div>
+      <div style="font-size:13px;color:#5a5462;line-height:1.6;margin-bottom:12px;">18–28 años. Vio un reel de "glass skin routine" o un before/after de acné. Quiere los productos pero no sabe dónde comprarlos en Argentina. Precio no es la barrera — la disponibilidad y la confianza lo son.</div>
+      <div class="pill-wrap"><span class="pill pill-cold">TikTok → IG → Compra</span></div>
+    </div>
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:#e85d8a;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Perfil 2 — Tibio</div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:8px;">La skincare entusiasta</div>
+      <div style="font-size:13px;color:#5a5462;line-height:1.6;margin-bottom:12px;">25–38 años. Ya usa productos de The Ordinary o similares. Conoce ingredientes, lee etiquetas, busca activos específicos (niacinamida, retinol, AHA). Quiere resultados reales. Está dispuesta a pagar más si el producto lo justifica.</div>
+      <div class="pill-wrap"><span class="pill pill-warm">Compara antes de comprar</span></div>
+    </div>
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;">Perfil 3 — Fan</div>
+      <div style="font-size:15px;font-weight:700;margin-bottom:8px;">La K-pop / K-drama fan</div>
+      <div style="font-size:13px;color:#5a5462;line-height:1.6;margin-bottom:12px;">15–30 años. Sigue grupos de K-pop, ve doramas en Netflix. Para ella el K-beauty es parte de la cultura, no solo un producto. Quiere sentirse parte de ese mundo. Muy activa en redes, comparte lo que compra.</div>
+      <div class="pill-wrap"><span class="pill pill-hot">UGC natural + reseñas</span></div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ HOOKS ═══════ -->
+<section id="hooks">
+  <div class="section-title"><span>🪝</span> Hooks — Los Ganchos para Meta Ads</div>
+  <div class="section-sub">Primeros 3 segundos del video o primera línea del copy — lo que decide si para o pasa</div>
+
+  <div class="grid-hooks">
+    <div class="hook-card">
+      <div class="hook-label">Frío · Aspiración · Glass Skin</div>
+      <div class="hook-text">"Esta es la rutina de noche que les da esa piel a las coreanas."</div>
+      <div class="hook-why">Apunta al deseo de fondo: querer "la piel de las coreanas". No habla de productos — habla del resultado aspiracional. Funciona para N1 que no conoce las marcas.</div>
+    </div>
+    <div class="hook-card blue">
+      <div class="hook-label">Frío · Problema · Acné / Manchas</div>
+      <div class="hook-text">"El 90% de los productos para acné que vendemos acá son fórmulas de hace 20 años. Los coreanos llevan décadas más adelantados."</div>
+      <div class="hook-why">Crea insatisfacción con lo existente y posiciona lo coreano como superior sin nombrar marcas locales. El usuario hace la comparación solo.</div>
+    </div>
+    <div class="hook-card green">
+      <div class="hook-label">Frío · Social proof · TikTok</div>
+      <div class="hook-text">"Este tónico tiene 800 millones de views en TikTok. Recién llega a Argentina."</div>
+      <div class="hook-why">Número grande + escasez local. La prueba social global compensa la falta de prueba local. El FOMO de "recién llega" activa urgencia.</div>
+    </div>
+    <div class="hook-card purple">
+      <div class="hook-label">Tibio · Educación · Ingredientes</div>
+      <div class="hook-text">"Niacinamida 10% + Zinc. $X pesos. Por qué este sérum coreano destruye al The Ordinary."</div>
+      <div class="hook-why">Para la que ya conoce ingredientes. La comparación directa captura atención — no habla de marcas locales, habla de una referencia global que ya conocen.</div>
+    </div>
+    <div class="hook-card warn">
+      <div class="hook-label">Tibio · Testimonial · Transformación</div>
+      <div class="hook-text">"Empecé a usar esto hace 30 días. Este es mi resultado."</div>
+      <div class="hook-why">El "30 days miracle" de Some By Mi tiene gancho narrativo incorporado. El número de días específico hace la promesa creíble. Antes/después sin filtros convierte.</div>
+    </div>
+    <div class="hook-card">
+      <div class="hook-label">Caliente · Oferta · BOFU</div>
+      <div class="hook-text">"COSRX Snail Mucin 96%. $X pesos. Envío en 24hs. Ya."</div>
+      <div class="hook-why">Para retargeting. Sin historia, sin contexto — el que llegó acá ya sabe qué es. Solo necesita precio + disponibilidad + fricción mínima para comprar.</div>
+    </div>
+    <div class="hook-card blue">
+      <div class="hook-label">Frío · Cultura · K-pop</div>
+      <div class="hook-text">"¿Querés saber qué productos de skincare usan los idols coreanos?"</div>
+      <div class="hook-why">Entra por la identidad cultural, no por el producto. Las K-pop fans abren este video 100%. Una vez dentro, el contenido hace el trabajo de presentar las marcas.</div>
+    </div>
+    <div class="hook-card green">
+      <div class="hook-label">Tibio · Disponibilidad · ARG</div>
+      <div class="hook-text">"Sí, ya los tenemos en Argentina. Con envío a todo el país."</div>
+      <div class="hook-why">Responde directamente al mayor dolor del nicho: "¿dónde los consigo en Argentina?". Para quien ya conoce los productos pero no encontraba dónde comprarlos local.</div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <strong style="color:var(--warn);">Regla de oro:</strong> El antes/después de acné o manchas con productos coreanos es el creativo que más convierte en este nicho. UGC real, piel de verdad, sin filtros. Los ingredientes específicos en el copy filtran al cliente lógico. Combinar ambos por campaña.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ FINANZAS ═══════ -->
+<section id="finanzas">
+  <div class="section-title"><span>💰</span> Finanzas — Modelo de Negocio</div>
+  <div class="section-sub">Cómo funciona la plata — costos, márgenes y proyecciones base</div>
+
+  <div class="grid-2" style="margin-bottom:20px;">
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:var(--accent);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;">Canales de abastecimiento disponibles</div>
+      <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="background:rgba(52,211,153,0.06);border:1px solid rgba(52,211,153,0.2);border-radius:10px;padding:14px;">
+          <div style="font-size:11px;font-weight:700;color:#34d399;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Opción 1 — Distribuidores locales ARG (más fácil)</div>
+          <div style="font-size:13px;color:#5a5462;line-height:1.6;">MAEUM, Regy Beauty B2B, Karita Koreana. Cuentas B2B, precios por volumen, validación rápida. Sin importación directa. Margen menor pero cero riesgo de aduana.</div>
+        </div>
+        <div style="background:rgba(96,165,250,0.06);border:1px solid rgba(96,165,250,0.2);border-radius:10px;padding:14px;">
+          <div style="font-size:11px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Opción 2 — Importación directa de Corea (mayor margen)</div>
+          <div style="font-size:13px;color:#5a5462;line-height:1.6;">Contacto directo con marcas o distribuidores en Corea. Mayor margen pero requiere volumen mínimo, registro ANMAT, y gestión de aduana. Para fase 2.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div style="font-size:11px;font-weight:700;color:var(--accent);margin-bottom:16px;text-transform:uppercase;letter-spacing:1px;">Estructura de costos estimada por producto</div>
+      <div style="display:flex;flex-direction:column;gap:0;">
+        <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px;"><span style="color:var(--muted);">Costo mayorista (local ARG)</span><span style="font-weight:700;">X</span></div>
+        <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px;"><span style="color:var(--muted);">Markup objetivo</span><span style="font-weight:700;color:#fbbf24;">2x – 3x</span></div>
+        <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px;"><span style="color:var(--muted);">Precio venta típico</span><span style="font-weight:700;color:#34d399;">$20K–$80K ARS</span></div>
+        <div style="display:flex;justify-content:space-between;padding:11px 0;border-bottom:1px solid var(--border);font-size:13px;"><span style="color:var(--muted);">Envío a cliente</span><span style="font-weight:700;color:#f87171;">Variable (gratis &gt;$100K)</span></div>
+        <div style="display:flex;justify-content:space-between;padding:13px 0;font-size:15px;font-weight:800;"><span>Margen bruto objetivo</span><span style="color:var(--accent);">40%–60%</span></div>
+      </div>
+      <div style="font-size:11px;color:#4a4452;margin-top:8px;">⚠️ Los márgenes exactos dependen del proveedor y volumen. Verificar con B2B antes de proyectar.</div>
+    </div>
+  </div>
+
+  <div class="warn-box">
+    <strong style="color:var(--warn);">Pendiente verificar antes de arrancar:</strong> Precios mayoristas exactos de MAEUM / Regy B2B · Requisitos ANMAT para venta en Argentina · Costos de envío a interior · Mínimos de pedido por marca. No proyectar números finales sin estos datos reales.
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ PLAN ═══════ -->
+<section id="plan">
+  <div class="section-title"><span>🗓️</span> Plan de Lanzamiento</div>
+  <div class="section-sub">Primeros pasos para arrancar — orden lógico</div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:16px;">Fase 1 — Validación (Semana 1–2)</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-week">Paso 1</div>
+          <div class="tl-title">Registrarse como B2B en MAEUM y Regy Beauty</div>
+          <div class="tl-desc">Conseguir lista de precios mayoristas reales. Sin eso no hay proyección confiable.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-week">Paso 2</div>
+          <div class="tl-title">Definir catálogo inicial: 3 marcas, 5 productos cada una</div>
+          <div class="tl-desc">COSRX + Anua + Beauty of Joseon. Máx 15 SKUs para arrancar. Profundidad antes que amplitud.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-week">Paso 3</div>
+          <div class="tl-title">Verificar requisitos ANMAT para venta de cosméticos importados</div>
+          <div class="tl-desc">Si los distribuidores locales ya tienen el registro, el paso se simplifica. Preguntar explícitamente.</div>
+        </div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="font-size:13px;font-weight:700;color:var(--accent);margin-bottom:16px;">Fase 2 — Lanzamiento (Semana 3–6)</div>
+      <div class="timeline">
+        <div class="tl-item">
+          <div class="tl-week">Paso 4</div>
+          <div class="tl-title">Tienda Shopify + fotografía de productos real</div>
+          <div class="tl-desc">La foto del producto sobre fondo limpio es el 50% de la conversión. No cortar costos acá.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-week">Paso 5</div>
+          <div class="tl-title">Contenido orgánico: 2 semanas de posts antes de prender ads</div>
+          <div class="tl-desc">Reels de rutina, ingredientes explicados, unboxing. Que la cuenta tenga contenido real cuando llegue el tráfico pago.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-week">Paso 6</div>
+          <div class="tl-title">Meta Ads: 3 creativos, budget $50–$70 USD/día</div>
+          <div class="tl-desc">Ring 1 UGC + Ring 3 Testimonial + Ring 2 Product Demo. Testear hooks durante 7–10 días antes de escalar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /container -->
+</body>
+</html>
