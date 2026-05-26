@@ -64,12 +64,12 @@
     nav { padding: 0 16px; height: 45px; }
   }
 
-  .container { max-width: 1340px; margin: 0 auto; padding: 44px 40px; }
-  section { margin-bottom: 64px; }
-  .section-title { font-size: 21px; font-weight: 800; margin-bottom: 6px; display: flex; align-items: center; gap: 10px; }
-  .section-sub { color: var(--muted); font-size: 13px; margin-bottom: 26px; }
+  .container { max-width: 1340px; margin: 0 auto; padding: 32px 36px; }
+  section { margin-bottom: 48px; }
+  .section-title { font-size: 18px; font-weight: 800; margin-bottom: 4px; display: flex; align-items: center; gap: 8px; }
+  .section-sub { color: var(--muted); font-size: 12px; margin-bottom: 18px; }
 
-  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 14px; padding: 22px; transition: border-color 0.2s; }
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; transition: border-color 0.2s; }
   .card:hover { border-color: rgba(232,93,138,0.25); }
 
   .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
@@ -175,6 +175,7 @@
     <a href="#hooks">🪝 Hooks</a>
     <a href="#finanzas">💰 Finanzas</a>
     <a href="#plan">🗓️ Plan</a>
+    <a href="#checklist">📋 Tu Caso</a>
   </div>
   <button class="hamburger" id="hamburger" aria-label="Menu">
     <span></span><span></span><span></span>
@@ -194,6 +195,7 @@
   <a href="#hooks" class="mobile-link">🪝 Hooks</a>
   <a href="#finanzas" class="mobile-link">💰 Finanzas</a>
   <a href="#plan" class="mobile-link">🗓️ Plan</a>
+  <a href="#checklist" class="mobile-link">📋 Tu Caso</a>
 </div>
 
 <script>
@@ -1254,6 +1256,148 @@
       </div>
     </div>
   </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ═══════ CHECKLIST ═══════ -->
+<section id="checklist">
+  <div class="section-title"><span>📋</span> Tu Caso — Checklist y Referencias</div>
+  <div class="section-sub">Todo lo que tenés que hacer, en orden, con los links directos · Luca (ads) + Paula (operaciones) · COSRX hero · $500 stock · $30–40 USD/día ads</div>
+
+  <style>
+    .cl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+    .cl-grid-3 { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-bottom: 12px; }
+    @media(max-width:900px){ .cl-grid-3 { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:600px){ .cl-grid, .cl-grid-3 { grid-template-columns: 1fr; } }
+    .cl-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 10px; padding: 13px 15px; }
+    .cl-title { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: .8px; margin-bottom: 8px; }
+    .cl-item { display: flex; gap: 8px; align-items: flex-start; padding: 5px 0; border-bottom: 1px solid rgba(36,36,50,0.7); font-size: 12px; color: #8a8094; line-height: 1.5; }
+    .cl-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .cl-num { background: rgba(232,93,138,0.15); color: #e85d8a; width: 18px; height: 18px; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 10px; font-weight: 800; flex-shrink: 0; margin-top: 1px; }
+    .cl-num.blue { background: rgba(96,165,250,0.15); color: #60a5fa; }
+    .cl-num.green { background: rgba(52,211,153,0.15); color: #34d399; }
+    .cl-num.warn { background: rgba(251,191,36,0.15); color: #fbbf24; }
+    .cl-num.purple { background: rgba(167,139,250,0.15); color: #a78bfa; }
+    .cl-text strong { color: var(--text); }
+    .cl-link { color: var(--accent); text-decoration: none; font-size: 11px; font-weight: 600; }
+    .cl-link:hover { text-decoration: underline; }
+    .ref-row { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 6px; }
+    .ref-pill { background: var(--bg3); border: 1px solid var(--border); border-radius: 6px; padding: 5px 10px; font-size: 11px; display: flex; align-items: center; gap: 5px; }
+    .ref-pill a { color: var(--accent); text-decoration: none; font-weight: 600; }
+    .ref-pill a:hover { text-decoration: underline; }
+    .ref-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+  </style>
+
+  <!-- Pasos en orden -->
+  <div class="cl-grid" style="margin-bottom:12px;">
+
+    <div class="cl-card" style="border-top:3px solid #e85d8a;">
+      <div class="cl-title" style="color:#e85d8a;">Antes de arrancar — validación</div>
+      <div class="cl-item"><div class="cl-num">1</div><div class="cl-text"><strong>Registrarse en MAEUM como B2B</strong> — conseguir lista de precios mayoristas reales antes de proyectar cualquier número · <a href="https://maeum.com.ar" target="_blank" class="cl-link">maeum.com.ar ↗</a></div></div>
+      <div class="cl-item"><div class="cl-num">2</div><div class="cl-text"><strong>Registrarse en Regy Beauty B2B</strong> — segunda fuente de precios mayoristas para comparar · <a href="https://regybeauty.com" target="_blank" class="cl-link">regybeauty.com ↗</a></div></div>
+      <div class="cl-item"><div class="cl-num">3</div><div class="cl-text"><strong>Confirmar que los distribuidores tienen ANMAT</strong> — preguntarlo explícitamente antes de comprar. Si lo tienen, el problema legal está resuelto.</div></div>
+      <div class="cl-item"><div class="cl-num">4</div><div class="cl-text"><strong>Calcular margen real</strong> con precios B2B confirmados. Precio de venta referencia: $69.900 ARS (Snail Mucin). Verificar vs Luxodia · <a href="https://luxodia.com/marcas/cosrx/" target="_blank" class="cl-link">luxodia.com ↗</a></div></div>
+      <div class="cl-item"><div class="cl-num">5</div><div class="cl-text"><strong>Definir 5–6 SKUs iniciales</strong> — COSRX Snail Mucin 96% + 4 complementos de rutina. No más. Profundidad antes que amplitud.</div></div>
+    </div>
+
+    <div class="cl-card" style="border-top:3px solid #60a5fa;">
+      <div class="cl-title" style="color:#60a5fa;">Plataforma y pagos</div>
+      <div class="cl-item"><div class="cl-num blue">6</div><div class="cl-text"><strong>Abrir Tienda Nube plan Emprendedor</strong> — conectar dominio propio (ya lo tenés) · <a href="https://www.tiendanube.com/planes-y-precios" target="_blank" class="cl-link">tiendanube.com/planes ↗</a></div></div>
+      <div class="cl-item"><div class="cl-num blue">7</div><div class="cl-text"><strong>Activar Pago Nube</strong> — habilitar Transferencia bancaria (1.50% + IVA, CPT gratis) como método principal. Tarjeta como alternativa · <a href="https://www.tiendanube.com/pago-nube" target="_blank" class="cl-link">pagos ↗</a></div></div>
+      <div class="cl-item"><div class="cl-num blue">8</div><div class="cl-text"><strong>Configurar envíos</strong> — integrar OCA o Andreani. Envío gratis a partir de cierto monto para incentivar ticket alto · <a href="https://www6.oca.com.ar/plataformaenvios/" target="_blank" class="cl-link">OCA ↗</a> · <a href="https://www.andreani.com" target="_blank" class="cl-link">Andreani ↗</a></div></div>
+      <div class="cl-item"><div class="cl-num blue">9</div><div class="cl-text"><strong>Fotografiar los productos</strong> — Paula: fondo blanco o neutro, luz natural. Es el 50% de la conversión. Sin buenas fotos no hay buen ad.</div></div>
+    </div>
+
+  </div>
+
+  <div class="cl-grid" style="margin-bottom:12px;">
+
+    <div class="cl-card" style="border-top:3px solid #34d399;">
+      <div class="cl-title" style="color:#34d399;">Meta Ads — Luca</div>
+      <div class="cl-item"><div class="cl-num green">10</div><div class="cl-text"><strong>Crear cuenta publicitaria nueva</strong> para el negocio. No mezclar con otras cuentas de clientes.</div></div>
+      <div class="cl-item"><div class="cl-num green">11</div><div class="cl-text"><strong>Días 1–7: $50–60 USD/día</strong> con 3 creativos distintos (3 hooks diferentes). Objetivo: encontrar el ganador rápido.</div></div>
+      <div class="cl-item"><div class="cl-num green">12</div><div class="cl-text"><strong>Hook recomendado #1:</strong> "Este sérum de moco de caracol tiene 4 millones de reseñas 5 estrellas. Recién llegó a Argentina." — UGC, piel real, sin filtros.</div></div>
+      <div class="cl-item"><div class="cl-num green">13</div><div class="cl-text"><strong>Cuando hay creativo ganador</strong> → bajar a $40 USD/día solo con ese. Escalar gradual cada 3–4 días sin superar 20% de aumento por vez.</div></div>
+      <div class="cl-item"><div class="cl-num green">14</div><div class="cl-text"><strong>Instalar Pixel de Meta</strong> en Tienda Nube antes de gastar el primer peso en ads. Sin pixel no hay datos de conversión.</div></div>
+    </div>
+
+    <div class="cl-card" style="border-top:3px solid #fbbf24;">
+      <div class="cl-title" style="color:#fbbf24;">Operaciones — Paula</div>
+      <div class="cl-item"><div class="cl-num warn">15</div><div class="cl-text"><strong>Stock inicial: $500 USD</strong> en distribuidores B2B locales — Snail Mucin héroe (mayoría) + complementos. Reponer con revenue apenas se venda.</div></div>
+      <div class="cl-item"><div class="cl-num warn">16</div><div class="cl-text"><strong>Packaging</strong> — bolsa kraft o biodegradable, papel tissue, sticker de marca, tarjetita escrita a mano. Genera UGC orgánico y reseñas 5 estrellas.</div></div>
+      <div class="cl-item"><div class="cl-num warn">17</div><div class="cl-text"><strong>WhatsApp de atención</strong> — responder consultas antes y después de la compra. El cliente de K-beauty pregunta mucho antes de comprar.</div></div>
+      <div class="cl-item"><div class="cl-num warn">18</div><div class="cl-text"><strong>Confirmar transferencias manualmente</strong> — cuando llega el comprobante, confirmar el pago en Tienda Nube y preparar el pedido el mismo día.</div></div>
+      <div class="cl-item"><div class="cl-num warn">19</div><div class="cl-text"><strong>Actualizar precios cada 2 semanas</strong> — el tipo de cambio mueve el costo mayorista. Si no actualizás, perdés margen sin darte cuenta.</div></div>
+    </div>
+
+  </div>
+
+  <!-- Referencias por categoría -->
+  <div class="cl-card" style="margin-bottom:12px;">
+    <div class="cl-title" style="color:var(--muted);">Referencias — todos los links importantes</div>
+
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px;">
+
+      <div>
+        <div style="font-size:10px;font-weight:700;color:#e85d8a;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Proveedores B2B locales (precio mayorista ARG)</div>
+        <div class="ref-row">
+          <div class="ref-pill"><div class="ref-dot" style="background:#e85d8a;"></div><a href="https://maeum.com.ar" target="_blank">MAEUM ↗</a><span style="color:var(--muted);">— Skin1004, Anua, Beauty of Joseon, COSRX</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#e85d8a;"></div><a href="https://regybeauty.com" target="_blank">Regy Beauty B2B ↗</a><span style="color:var(--muted);">— COSRX, Some By Mi, Beauty of Joseon</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#e85d8a;"></div><a href="https://kosmeticos.com.ar/mayorista/" target="_blank">Kosmeticos.com.ar mayorista ↗</a><span style="color:var(--muted);">— Round Lab, Biodance, Skin1004</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#e85d8a;"></div><a href="https://my-kare.com/en/pages/wholesaler-kbeauty" target="_blank">MY-KARE B2B ↗</a><span style="color:var(--muted);">— mayorista K-beauty</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:10px;font-weight:700;color:#60a5fa;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Fuente de producto — precio de referencia y wholesale Korea</div>
+        <div class="ref-row">
+          <div class="ref-pill"><div class="ref-dot" style="background:#60a5fa;"></div><a href="https://global.oliveyoung.com/product/detail?prdtNo=GA210000530" target="_blank">Olive Young — Snail Mucin ↗</a><span style="color:var(--muted);">— ~$18–21 USD retail</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#60a5fa;"></div><a href="https://www.yesstyle.com/en/cosrx-advanced-snail-96-mucin-power-essence-100ml/info.html/pid.1052684695" target="_blank">YesStyle — Snail Mucin ↗</a><span style="color:var(--muted);">— ~$15–21 USD retail</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#60a5fa;"></div><a href="https://wholesale.q-depot.com/product/cosrx-advanced-snail-96-mucin-power-essence-100ml" target="_blank">Q-depot wholesale ↗</a><span style="color:var(--muted);">— $9.15 USD/u · mín 60 u · Fase 2</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#60a5fa;"></div><a href="https://www.cosrx.com/products/advanced-snail-96-mucin-power-essence" target="_blank">COSRX oficial ↗</a><span style="color:var(--muted);">— referencia del producto</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:10px;font-weight:700;color:#34d399;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Plataforma y pagos</div>
+        <div class="ref-row">
+          <div class="ref-pill"><div class="ref-dot" style="background:#34d399;"></div><a href="https://www.tiendanube.com/planes-y-precios" target="_blank">Tienda Nube — Planes ↗</a><span style="color:var(--muted);">— elegir plan Emprendedor para empezar</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#34d399;"></div><a href="https://ayuda.tiendanube.com/es_ES/pago-nube/cuales-son-las-comisiones-de-pago-nube" target="_blank">Pago Nube — tasas ↗</a><span style="color:var(--muted);">— transferencia 1.5% + IVA, CPT gratis</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#34d399;"></div><a href="https://www6.oca.com.ar/plataformaenvios/" target="_blank">OCA envíos ↗</a><span style="color:var(--muted);">— integración con Tienda Nube</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#34d399;"></div><a href="https://www.andreani.com/precios-productos" target="_blank">Andreani precios ↗</a><span style="color:var(--muted);">— ~$11–13K ARS por envío</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:10px;font-weight:700;color:#fbbf24;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Competidores — para monitorear precios y contenido</div>
+        <div class="ref-row">
+          <div class="ref-pill"><div class="ref-dot" style="background:#fbbf24;"></div><a href="https://skinko.com.ar" target="_blank">Skinko ↗</a><span style="color:var(--muted);">— 149K IG · referente del mercado local</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#fbbf24;"></div><a href="https://luxodia.com/marcas/cosrx/" target="_blank">Luxodia — COSRX ↗</a><span style="color:var(--muted);">— 114K IG · precios de referencia</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#fbbf24;"></div><a href="https://regybeauty.com/shop/" target="_blank">Regy Beauty tienda ↗</a><span style="color:var(--muted);">— catálogo y precios</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#fbbf24;"></div><a href="https://listado.mercadolibre.com.ar/cosrx-snail-96" target="_blank">MercadoLibre — Snail 96 ↗</a><span style="color:var(--muted);">— $50K–$70K ARS · múltiples vendedores</span></div>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-size:10px;font-weight:700;color:#a78bfa;text-transform:uppercase;letter-spacing:.8px;margin-bottom:5px;">Instagram — cuentas a estudiar</div>
+        <div class="ref-row">
+          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/skinko.ar/" target="_blank">@skinko.ar ↗</a><span style="color:var(--muted);">— 149K · líder local</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/luxodia_cosmetica/" target="_blank">@luxodia_cosmetica ↗</a><span style="color:var(--muted);">— 114K · estética y contenido</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/anua_argentina/" target="_blank">@anua_argentina ↗</a><span style="color:var(--muted);">— 76K · contenido que funciona en ARG</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/cosrx/" target="_blank">@cosrx ↗</a><span style="color:var(--muted);">— +2M · formatos de contenido oficiales</span></div>
+          <div class="ref-pill"><div class="ref-dot" style="background:#a78bfa;"></div><a href="https://www.instagram.com/k.beauty.arg/" target="_blank">@k.beauty.arg ↗</a><span style="color:var(--muted);">— 48K · qué le interesa a la audiencia ARG</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Alerta financiera -->
+  <div class="warn-box" style="font-size:12px;">
+    <strong style="color:var(--warn);">Antes de gastar un peso en ads:</strong> Tener stock físico en mano · fotos del producto listas · tienda funcionando · Pixel de Meta instalado · precios mayoristas B2B confirmados. Si falta cualquiera de estos cinco, los ads van a tirar plata al vacío.
+  </div>
+
 </section>
 
 </div><!-- /container -->
